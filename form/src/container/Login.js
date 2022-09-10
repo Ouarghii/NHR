@@ -48,7 +48,13 @@ const Accordion = styled((props) => (
       marginLeft: theme.spacing(1),
     },
   }));
-  
+  function MouseOver(event) {
+    event.target.style.color= 'blue';
+  }
+  function MouseOut(event){
+    event.target.style.color="white";
+  }
+
   const AccordionDetails = styled(MuiAccordionDetails)(({ theme }) => ({
     padding: theme.spacing(2),
     borderTop: '1px solid rgba(0, 0, 0, .125)',
@@ -94,10 +100,10 @@ function Login() {
             <form action="" method="post">
                 <div className="login">
                   <div className="mb-3 mt-3">
-                <h2 class="active"  ><a style={{color:'white',textDecoration:'none'}} href="http://localhost:3001/login" >Login </a></h2>
+                <h2 class="active"  onMouseOver={MouseOver} onMouseOut={MouseOut}><a style={{color:'white',fontSize:'16px',marginRight:'15px',textDecoration:'none'}} href="http://localhost:3001/login" >Login </a></h2>
                 <h2 class="active" onClick={()=>{
               window.location='/registration'
-            }}> <a href="http://localhost:3001/registration" style={{color:'white',textDecoration:'none'}} >Registration</a></h2>
+            }} onMouseOver={MouseOver} onMouseOut={MouseOut}> <a href="http://localhost:3001/registration" style={{color:'white',fontSize:'16px' ,textDecoration:'none'}} classname='ras'>Registration</a></h2>
                     <input type="email" style={{'color':'white'}} className="text" placeholder="your email ?" onChange={(e)=>{
                       setEmail(e.target.value)
                     }}/>

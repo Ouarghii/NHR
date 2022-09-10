@@ -23,6 +23,11 @@ function RowDetails({Email, Fullname, Cin,NumberPhone,Profession, status, Id, On
       <span style={{transform:'translateY(300%)'}} className="badge bg-danger" onClick={()=>OnDelete(Id)}>
         <i  className="fas fa-trash-alt"></i>
       </span>
+      <span  className="badge">
+        <Link to={`/view/${Id}`}>
+        <CgProfile style={{transform:'translateY(0%)'}} size={'15px'}/>
+        </Link>
+      </span>
       
     </td>
   </tr>

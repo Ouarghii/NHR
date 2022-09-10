@@ -51,6 +51,12 @@ const Accordion = styled((props) => (
     padding: theme.spacing(2),
     borderTop: '1px solid rgba(0, 0, 0, .125)',
   }));
+  function MouseOver(event) {
+    event.target.style.color= 'blue';
+  }
+  function MouseOut(event){
+    event.target.style.color="white";
+  }
   
 function Registrationa() {
   const{get,post,response,loading,error}=useFetch('http://localhost:3000')
@@ -133,8 +139,8 @@ function Registrationa() {
             <form action="" method="post" className="form-inner">
             <div className="login">
                 <div className="mb-3 mt-3">
-                <h2 class="active"><a href="http://localhost:3001/logina" style={{color:'white',textDecoration:'none'}} >Login </a></h2>
-                <h2 class="active" > <a href="http://localhost:3001/registrationa" style={{color:'white',textDecoration:'none'}} >Registration</a></h2>
+                <h2 class="active"  onMouseOver={MouseOver} onMouseOut={MouseOut}><a href="http://localhost:3001/logina" style={{color:'white',textDecoration:'none',fontSize:'16px',marginRight:'15px'}} >Login </a></h2>
+                <h2 class="active"  onMouseOver={MouseOver} onMouseOut={MouseOut}> <a href="http://localhost:3001/registrationa" style={{color:'white',textDecoration:'none',fontSize:'16px',marginRight:'15px'}} >Registration</a></h2>
                     <input style={{'color':'white'}} type="text" placeholder="your username ?" className="text" on onChange={(e)=>{
                       console.log(e.target.value)
                       setUsername(e.target.value)

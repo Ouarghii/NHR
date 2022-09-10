@@ -13,7 +13,6 @@ import About from './Routes/About';
 import Contact from './Routes/Contact';
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import '../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js'
-import View from './container/View'
 import Entreprise from './container/Entreprise';
 import EntrepriseUpdate from './container/EntrepriseUpdate';
 import Boite from './container/Boite';
@@ -25,8 +24,8 @@ import FournisseurUpdate from './container/FournisseursUpdate';
 import Type from './container/Types';
 import TypeUpdate from './container/TypesUpdate';
 import Wlcm1 from './container/Wlcm1';
-
-
+import View from './container/View';
+import ShowCom from'./container/ShowCom';
 
 
 
@@ -57,6 +56,8 @@ root.render(
       <Route exact path='/autres' element={<Type/>} />
       <Route exact path='/autres/:id' element={<TypeUpdate />} />
       <Route exact path='/view/:id' element={<View />} />
+      <Route exact path='/show' element={<ShowCom />} />
+
 
       
       

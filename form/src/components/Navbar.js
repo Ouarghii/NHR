@@ -2,6 +2,12 @@ import React ,{useState} from 'react'
 import './NavbarStyles.css'
 import {Link} from 'react-router-dom'
 import {FaBars,FaTimes} from 'react-icons/fa'
+function MouseOver(event) {
+    event.target.style.color= '#0096FF';
+  }
+  function MouseOut(event){
+    event.target.style.color="white";
+  }
 
 
 const Navbar = () => {
@@ -27,16 +33,16 @@ const Navbar = () => {
         <Link style={{textDecoration:'none'}}to='/'><h1>NHR</h1></Link>
         <ul className={click ? 'nav-menu active' : 'nav-menu'}>
             <li>
-                <Link style={{color:'white',textDecoration:'none'}} to='/'>Acceuil</Link>
+                <Link onMouseOver={MouseOver} onMouseOut={MouseOut} style={{color:'white',textDecoration:'none'}} to='/'>Acceuil</Link>
             </li>
             <li>
-                <Link style={{color:'white',textDecoration:'none'}} to='/services'>Services</Link>
+                <Link onMouseOver={MouseOver} onMouseOut={MouseOut} style={{color:'white',textDecoration:'none'}} to='/services'>Services</Link>
             </li>
             <li>
-                <Link style={{color:'white',textDecoration:'none'}} to='/about'>A propos</Link>
+                <Link onMouseOver={MouseOver} onMouseOut={MouseOut} style={{color:'white',textDecoration:'none'}} to='/about'>A propos</Link>
             </li>
             <li>
-                <Link style={{color:'white',textDecoration:'none'}}to='/contact'>Contact</Link>
+                <Link onMouseOver={MouseOver} onMouseOut={MouseOut} style={{color:'white',textDecoration:'none'}}to='/contact'>Contact</Link>
             </li>
         </ul>
         <div className='hamburger' onClick={handleClick}> 

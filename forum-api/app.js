@@ -15,7 +15,7 @@ var boiteRouter = require('./routes/boites')
 var clientsRouter=require('./routes/clients')
 var typesRouter=require('./routes/types')
 var app = express();
-
+var uploadroute=require('./routes/upload')
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
@@ -50,6 +50,7 @@ app.use('/boite',boiteRouter)
 app.use('/clients',clientsRouter)
 app.use('/fournisseurs',fournisseursRouter)
 app.use('/autres',typesRouter)
+app.use('/',uploadroute)
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
   next(createError(404));

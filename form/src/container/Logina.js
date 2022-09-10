@@ -104,11 +104,11 @@ function Logina() {
             <div className=" mb-3 mt-3">
             <h2  class="active" onClick={()=>{
               window.location='/logina'
-            }} onMouseOver={MouseOver} onMouseOut={MouseOut} style={{color:'white',textDecoration:'none'}}
+            }} onMouseOver={MouseOver} onMouseOut={MouseOut} style={{color:'white',textDecoration:'none', color:'white',fontSize:'16px',marginRight:'15px'}}
             > Login </h2>
                 <h2 class="active" onClick={()=>{
               window.location='/registrationa'
-            }}onMouseOver={MouseOver} onMouseOut={MouseOut} style={{color:'white',textDecoration:'none'}}> Registration</h2>
+            }}onMouseOver={MouseOver} onMouseOut={MouseOut} style={{color:'white',textDecoration:'none', color:'white',fontSize:'16px',marginRight:'15px'}}> Registration</h2>
                 
                     <input style={{'color':'white'}} type="text" placeholder="your email ?" className="text" onChange={(e)=>{
                       setEmail(e.target.value)

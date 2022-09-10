@@ -50,7 +50,13 @@ const Accordion = styled((props) => (
     padding: theme.spacing(2),
     borderTop: '1px solid rgba(0, 0, 0, .125)',
   }));
-  
+  function MouseOver(event) {
+    event.target.style.color= 'blue';
+  }
+  function MouseOut(event){
+    event.target.style.color="white";
+  }
+
 function Registration() {
   const{get,post,response,loading,error}=useFetch('http://localhost:3000')
   const[sections,setSections]=useState([])
@@ -79,8 +85,7 @@ function Registration() {
   const handleChangeGender = (event) => {
     setGender(event.target.value);
   };
-
-
+ 
   return (
     <div>
         
@@ -132,10 +137,10 @@ function Registration() {
             <form action="" method="post">
              <div className="login">
              <div className="mb-3 mt-3">
-             <h2 class="active"><a href="http://localhost:3001/login"  style={{color:'white',textDecoration:'none'}} >Login </a></h2>
-                <h2 class="active" onClick={()=>{
+             <h2 class="active" onMouseOver={MouseOver} onMouseOut={MouseOut}><a href="http://localhost:3001/login"  style={{color:'white',textDecoration:'none', color:'white',fontSize:'16px',marginRight:'15px'}} >Login </a></h2>
+                <h2 class="active" onMouseOver={MouseOver} onMouseOut={MouseOut} onClick={()=>{
               window.location='/registration'
-            }}> <a href="http://localhost:3001/registration"  style={{color:'white',textDecoration:'none'}} >Registration</a></h2>
+            }}> <a href="http://localhost:3001/registration"  style={{color:'white',textDecoration:'none', color:'white',fontSize:'16px',marginRight:'15px'}} >Registration</a></h2>
                     <input  style={{'color':'white'}} type="text" className="text" placeholder="your username ?"  onChange={(e)=>{
                       console.log(e.target.value)
                       setUsername(e.target.value)

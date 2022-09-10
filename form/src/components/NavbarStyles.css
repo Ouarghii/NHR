@@ -52,7 +52,9 @@
 .nav-menu a:hover{
     color: #0096FF;
 }
-
+li:hover {
+    color: #0096FF;
+}
 
 .hamburger{
     display: none;
