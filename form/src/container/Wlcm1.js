@@ -8,21 +8,28 @@ import Boite from '../assets/Boite.jpg'
 import Plus from '../assets/plus.png'
 import {Link} from 'react-router-dom'
 import HomeIcon from '@mui/icons-material/Home';
+import { margin } from '@mui/system'
 function Wlcm1() {
   return (
     
     <div className='cards'>
         <div className='hello'>
-        <HomeIcon className="home"  onClick={()=>{
+        
+        <h1 style={{
+          
+          alignItems:"center",
+          color:"white",
+          background: "linear-gradient(90deg,#6082B6, #7DF9FF, #40B5AD, #6F8FAF,#6495ED,#0047AB)",
+          backgroundSize: "400%",
+          fontFamily:" sans-serif",
+          animation: "animate 10s linear infinite",
+          backgroundClip: "text" ,height:"100px"
+          
+}}><HomeIcon style={{marginLeft:"50px"}} className="home"  onClick={()=>{
             window.location='/'
-          }}/>
-        <h1 style={{alignItems:'center',
-           marginLeft:"400px",
-           color:"red"}}>Bienvenue <em style={{color:'black'}}>ADMIN</em>  </h1>
+          }}/><div style={{fontFamily:"'Segoe UI', Tahoma, Geneva, Verdana, sans-serif"}}> <center>Bienvenue</center></div> </h1>
         </div>
-       <h4 style={{color:"black",
-    marginTop:"50px",
-    marginLeft:"400px"}}>Sélectionnez ...:</h4>
+      
     <div className=' container-fluid d-flex justify-content-center'style={{marginLeft:"20px"}} >
         
     

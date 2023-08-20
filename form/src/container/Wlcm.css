@@ -54,6 +54,10 @@
 @media screen and (min-width:1600px) {
     .card1{
         transform: translateY(50%);
+
+    }
+    .ras{
+        transform: translateY(-50%);
     }
 }
 .lk{

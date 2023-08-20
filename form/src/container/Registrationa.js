@@ -15,6 +15,7 @@ import Bg from'../assets/entre.mp4'
 import HomeIcon from '@mui/icons-material/Home';
 // import './Login.css'
 import './ap.css'
+import { Link } from "react-router-dom";
 
 const Accordion = styled((props) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -59,7 +60,7 @@ const Accordion = styled((props) => (
   }
   
 function Registrationa() {
-  const{get,post,response,loading,error}=useFetch('http://localhost:3000')
+  const { get, post, response, loading, error } = useFetch('http://api:5000');
   const[sections,setSections]=useState([])
 
   useEffect(()=>{(async()=>{
@@ -139,8 +140,8 @@ function Registrationa() {
             <form action="" method="post" className="form-inner">
             <div className="login">
                 <div className="mb-3 mt-3">
-                <h2 class="active"  onMouseOver={MouseOver} onMouseOut={MouseOut}><a href="http://localhost:3001/logina" style={{color:'white',textDecoration:'none',fontSize:'16px',marginRight:'15px'}} >Login </a></h2>
-                <h2 class="active"  onMouseOver={MouseOver} onMouseOut={MouseOut}> <a href="http://localhost:3001/registrationa" style={{color:'white',textDecoration:'none',fontSize:'16px',marginRight:'15px'}} >Registration</a></h2>
+                <h2 class="active"  onMouseOver={MouseOver} onMouseOut={MouseOut}><Link to="/logina" style={{color:'white',textDecoration:'none',fontSize:'16px',marginRight:'15px'}} >Login </Link></h2>
+                <h2 class="active"  onMouseOver={MouseOver} onMouseOut={MouseOut}> <Link to="/registrationa" style={{color:'white',textDecoration:'none',fontSize:'16px',marginRight:'15px'}} >Registration</Link></h2>
                     <input style={{'color':'white'}} type="text" placeholder="your username ?" className="text" on onChange={(e)=>{
                       console.log(e.target.value)
                       setUsername(e.target.value)
@@ -167,28 +168,42 @@ function Registrationa() {
                 </div>
                
                 <div>
-                <Button style={{
-                  "background":"#f1f1f1",
-                  '&:hover': {
-                    background: "#f00",
-                 },
-                }} className="signin"  onClick={async()=>{
-                        const regis= await post('/admins',{
-                          username,
-                          password,
-                          matricule,
-                          email
-                          
-                          
-                        })
-                        setMessage(regis.msg)
-                         if(regis.ok){
-                          window.location='/welcome'
-                        }
-                      }}
-                >Register</Button>
+                <Button
+  style={{
+    background: "#f1f1f1",
+    '&:hover': {
+      background: "#f00",
+    },
+  }}
+  className="signin"
+  onClick={async () => {
+    try {
+      const regis = await post('/admins', {
+        username,
+        password,
+        matricule,
+        email
+      });
+
+      if (regis && regis.hasOwnProperty('msg')) {
+        setMessage(regis.msg);
+        if (regis.ok) {
+          window.location = '/welcome';
+        }
+      } else {
+        setMessage('An unexpected response from the server.');
+      }
+    } catch (error) {
+      console.error('Error during registration:', error);
+      setMessage('An error occurred during registration.');
+    }
+  }}
+>
+  Register
+</Button>
+
                 
-                <p style={{ "textDecoration":"underline"}} className="lin"><a  href='http://localhost:3001/logina'style={{color:'white'}}>Already have an account</a> </p>
+                <p style={{ "textDecoration":"underline"}} className="lin"><Link to='/logina'style={{color:'white'}}>Already have an account</Link> </p>
                 </div>
                 <div className="msg">{message}</div>
                 </div>

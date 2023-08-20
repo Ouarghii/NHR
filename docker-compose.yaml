@@ -1,0 +1,39 @@
+version: '3'
+services:
+   api:
+     image: node:16
+     container_name: api
+     working_dir: /app
+     command: npm start
+     ports:
+       - "5000:5000"
+     volumes:
+       - "./forum-api/:/app"
+     networks:
+       - my-network
+   web:
+     image: node:16
+     container_name: web
+     working_dir: /src
+     command: npm start
+     ports:
+       - "3000:3000"
+     volumes:
+       - "./form/:/src"
+     networks:
+       - my-network
+   mongo:
+     image: mongo
+     restart: always
+     environment:
+       MONGO_INITDB_ROOT_USERNAME: raslen
+       MONGO_INITDB_ROOT_PASSWORD: raslen
+     volumes:
+       - db-data:/data/db
+     networks:
+       - my-network
+networks:
+  my-network:
+volumes:
+  db-data: {}
+ 

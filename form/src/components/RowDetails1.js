@@ -14,18 +14,18 @@ function RowDetails({Email, Fullname, Cin,NumberPhone,Profession, status, Id, On
     <td>{Profession}</td>
     <td>{status}</td>
     <td className="gap__actions">
-      <span style={{transform:'translateY(360%)'}} className="badge1 bg-info">
+      <span style={{transform:'translateY(316%)'}} className="badge1 bg-info">
         <Link to={`/clients/${Id}`} className="text-white">
-          <i className="fas fa-edit" size={'50px'}></i>
+          <i className="fas fa-edit"  style={{'font-size':'24px'}}></i>
         </Link>
       </span>
 
-      <span style={{transform:'translateY(300%)'}} className="badge bg-danger" onClick={()=>OnDelete(Id)}>
-        <i  className="fas fa-trash-alt"></i>
+      <span style={{transform:'translateY(270%)'}} className="badge bg-danger" onClick={()=>OnDelete(Id)}>
+        <i  className="fas fa-trash-alt" style={{'font-size':'20px'}}></i>
       </span>
       <span  className="badge">
         <Link to={`/view/${Id}`}>
-        <CgProfile style={{transform:'translateY(0%)'}} size={'15px'}/>
+        <CgProfile style={{transform:'translateY(-60%)'}} size={'25px'}/>
         </Link>
       </span>
       

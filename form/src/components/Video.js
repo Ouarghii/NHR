@@ -13,7 +13,7 @@ const Video = () => {
         </video>
         <div className='content'>
             <h1>BIENVENUE DANS NHR</h1>
-            <p>Qu'est-ce que vous attendez ?</p>
+            <p style={{color:'black'}}>Qu'est-ce que vous attendez ?</p>
         
         <div>
             <Link to='/Services' className='btn' >Services</Link>

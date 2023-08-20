@@ -26,5 +26,6 @@ const getPosts=async(req,res)=>{
 
 module.exports={
    createPost,
-   getPosts
+   getPosts,
+   
 }

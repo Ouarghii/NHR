@@ -1,13 +1,17 @@
 import { useState,useEffect } from "react";
+import { Link } from "react-router-dom";
+import Row from "../components/Row";
+import axios from "axios";
 import uploadService from "./services/uploadService";
 function ShowCom(){
-    
+    const [show, setShow] = useState(false);
     const[uploads,setUploads]=useState({})
     const fetchUploads=async()=>{
       setUploads(await uploadService.getPosts()) 
     }
+    const [message, setMessage] = useState("");
 
-
+   
 useEffect(()=>{
     fetchUploads()
 },[])
@@ -19,7 +23,7 @@ console.log(uploads.data)
     return(
         <div>
             <h2>Justifications</h2>
-            {
+            {/* {
               uploads.data !==undefined && uploads.data.data.length > 0 && (
                     <table style={{width:'100%'}} border='1'>
                         <thead>
@@ -45,7 +49,34 @@ console.log(uploads.data)
                         </tbody>
                     </table>
                 )
-            }
+            } */}
+            <div className="container col-13 col-lg-7">
+                {uploads.data !==undefined && uploads.data.data.length > 0 && (
+            <table className="table">
+              <thead>
+                <tr>
+                  <th scope="col">email</th>
+                  <th scope="col">message</th>                  
+                  <th scope="col">File</th>                
+                 
+                </tr>
+              </thead>
+              <tbody>
+                {uploads.data.data.map(({ email, messa, image,_id}) => (
+                  <Row key={_id}
+                    email={email}
+                    messa={messa}                 
+                    image={image}
+                    Id={_id}
+                                  
+                    
+                  />
+                ))}
+              </tbody>
+            </table>
+            )}
+          </div>
+        
         </div>
     )
 }

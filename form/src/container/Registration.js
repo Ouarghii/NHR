@@ -15,6 +15,7 @@ import Bg from'../assets/entre.mp4'
 import HomeIcon from '@mui/icons-material/Home';
 // import './Login.css'
 import './ap.css'
+import { Link } from "react-router-dom";
 const Accordion = styled((props) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
   ))(({ theme }) => ({
@@ -58,7 +59,7 @@ const Accordion = styled((props) => (
   }
 
 function Registration() {
-  const{get,post,response,loading,error}=useFetch('http://localhost:3000')
+  const { get, post, response, loading, error } = useFetch('http://api:5000');
   const[sections,setSections]=useState([])
 
   useEffect(()=>{(async()=>{
@@ -137,10 +138,10 @@ function Registration() {
             <form action="" method="post">
              <div className="login">
              <div className="mb-3 mt-3">
-             <h2 class="active" onMouseOver={MouseOver} onMouseOut={MouseOut}><a href="http://localhost:3001/login"  style={{color:'white',textDecoration:'none', color:'white',fontSize:'16px',marginRight:'15px'}} >Login </a></h2>
+             <h2 class="active" onMouseOver={MouseOver} onMouseOut={MouseOut}><Link to="/login"  style={{color:'white',textDecoration:'none', color:'white',fontSize:'16px',marginRight:'15px'}} >Login </Link></h2>
                 <h2 class="active" onMouseOver={MouseOver} onMouseOut={MouseOut} onClick={()=>{
               window.location='/registration'
-            }}> <a href="http://localhost:3001/registration"  style={{color:'white',textDecoration:'none', color:'white',fontSize:'16px',marginRight:'15px'}} >Registration</a></h2>
+            }}> <Link to="/registration"  style={{color:'white',textDecoration:'none', color:'white',fontSize:'16px',marginRight:'15px'}} >Registration</Link></h2>
                     <input  style={{'color':'white'}} type="text" className="text" placeholder="your username ?"  onChange={(e)=>{
                       console.log(e.target.value)
                       setUsername(e.target.value)
@@ -177,11 +178,11 @@ function Registration() {
                         })
                         setMessage(regis.msg)
                          if(regis.ok){
-                          window.location='/login'
+                          window.location='/welcomeuser'
                         }
                       }}
                 >Register</Button>
-                <p style={{ "textDecoration":"underline"}} className="lin"><a  href='http://localhost:3001/login' style={{'color':'white'}}>Already have an account</a> </p>
+                <p style={{ "textDecoration":"underline"}} className="lin"><Link to='/login' style={{'color':'white'}}>Already have an account</Link> </p>
                 </div>
                 <div className="msg">{message}</div>
                 </div>

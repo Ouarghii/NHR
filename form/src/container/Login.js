@@ -16,6 +16,7 @@ import Bg from'../assets/entre.mp4'
 import HomeIcon from '@mui/icons-material/Home';
 // import './Login.css'
 import './ap.css'
+import { Link } from "react-router-dom";
 
 
 const Accordion = styled((props) => (
@@ -61,7 +62,7 @@ const Accordion = styled((props) => (
   }));
   
 function Login() {
-  const{get,post,response,loading,error}=useFetch('http://localhost:3000')
+  const { get, post, response, loading, error } = useFetch('http://api:5000');
   const[sections,setSections]=useState([])
   const[email,setEmail]=useState([])
   const[password,setPassword]=useState([])
@@ -94,16 +95,14 @@ function Login() {
         
        
         <div className='Home-container'>
-        <HomeIcon className="home"  onClick={()=>{
-            window.location='/'
-          }}/>
+        <HomeIcon className="home"  />
             <form action="" method="post">
                 <div className="login">
                   <div className="mb-3 mt-3">
                 <h2 class="active"  onMouseOver={MouseOver} onMouseOut={MouseOut}><a style={{color:'white',fontSize:'16px',marginRight:'15px',textDecoration:'none'}} href="http://localhost:3001/login" >Login </a></h2>
                 <h2 class="active" onClick={()=>{
               window.location='/registration'
-            }} onMouseOver={MouseOver} onMouseOut={MouseOut}> <a href="http://localhost:3001/registration" style={{color:'white',fontSize:'16px' ,textDecoration:'none'}} classname='ras'>Registration</a></h2>
+            }} onMouseOver={MouseOver} onMouseOut={MouseOut}> <Link to="/registration" style={{color:'white',fontSize:'16px' ,textDecoration:'none'}} classname='ras'>Registration</Link></h2>
                     <input type="email" style={{'color':'white'}} className="text" placeholder="your email ?" onChange={(e)=>{
                       setEmail(e.target.value)
                     }}/>
@@ -132,11 +131,11 @@ function Login() {
                           setislogin(true)
                           setmemberId(login._id)
                           setEmail(login.email)
-                          window.location='/'
+                          window.location='/welcomeuser'
                          }
                       }}
                 >Login</Button>
-                 <p style={{ "textDecoration":"underline"}}   className="lin"><a  href='http://localhost:3001/registration' style={{color:'white'}}>you haven't an account ?</a></p>
+                 <p style={{ "textDecoration":"underline"}}   className="lin"><Link to='/registration' style={{color:'white'}}>you haven't an account ?</Link></p>
                 </div>
                 </div>
             </form>

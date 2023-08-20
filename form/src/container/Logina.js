@@ -16,6 +16,7 @@ import Bg from'../assets/entre.mp4'
 import HomeIcon from '@mui/icons-material/Home';
 // import './Login.css'
 import './ap.css'
+import { Link } from "react-router-dom";
 
 const Accordion = styled((props) => (
     <MuiAccordion disableGutters elevation={0} square {...props} />
@@ -62,7 +63,7 @@ const Accordion = styled((props) => (
 
   
 function Logina() {
-  const{get,post,response,loading,error}=useFetch('http://localhost:3000')
+  const { get, post, response, loading, error } = useFetch('http://api:5000');
   const[sections,setSections]=useState([])
   const[email,setEmail]=useState([])
   const[password,setPassword]=useState([])
@@ -149,7 +150,7 @@ function Logina() {
                          }
                       }}
                 >Login</Button>
-                 <p style={{ "textDecoration":"underline"}} className="lin"><a style={{'color':'white'}} href='http://localhost:3001/registrationa'>you haven't an account ?</a></p>
+                 <p style={{ "textDecoration":"underline"}} className="lin"><Link style={{'color':'white'}} to='/registrationa'>you haven't an account ?</Link></p>
                 </div>
                 </div>
                 

@@ -26,6 +26,17 @@ import TypeUpdate from './container/TypesUpdate';
 import Wlcm1 from './container/Wlcm1';
 import View from './container/View';
 import ShowCom from'./container/ShowCom';
+import View1 from './container/View1';
+import ShowCom1 from './container/ShowCom1';
+import Admincli from './container/Admincli';
+import Post from './container/admin/Post';
+import View2 from './container/View2';
+import ShowCom2 from './container/ShowCom2';
+import View3 from './container/View3';
+import ShowCom3 from './container/ShowCom3';
+import View4 from './container/View4';
+import ShowCom4 from './container/ShowCom4';
+import Wlcm2 from './container/Wlcm2';
 
 
 
@@ -46,6 +57,8 @@ root.render(
       <Route exact path='/entreprise' element={<Entreprise />} />
       <Route exact path='/entreprise/:id' element={<EntrepriseUpdate />} />
       <Route exact path='/welcome' element={<Wlcm1/>} />
+      <Route exact path='/welcomeuser' element={<Wlcm2/>} />
+
       
       <Route exact path='/boite/:id' element={<BoiteUpdate />} />
       <Route exact path='/boite' element={<Boite />} />
@@ -57,6 +70,16 @@ root.render(
       <Route exact path='/autres/:id' element={<TypeUpdate />} />
       <Route exact path='/view/:id' element={<View />} />
       <Route exact path='/show' element={<ShowCom />} />
+      <Route exact path='/view1/:id' element={<View1 />} />
+      <Route exact path='/show1' element={<ShowCom1 />} />
+      <Route exact path='/addclients' element={<Admincli />} />
+      <Route exact path='/post' element={<Post />} />
+      <Route exact path='/view2/:id' element={<View2/>} />
+      <Route exact path='/show2' element={<ShowCom2 />} />
+      <Route exact path='/view3/:id' element={<View3/>} />
+      <Route exact path='/show3' element={<ShowCom3 />} />
+      <Route exact path='/view4/:id' element={<View4/>} />
+      <Route exact path='/show4' element={<ShowCom4 />} />
 
 
       
